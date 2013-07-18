@@ -1,0 +1,65 @@
+<html>
+<head>
+	
+	<script type="text/javascript" src="{{STATIC_URL}}js/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}js/underscore-min.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}js/backbone-min.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}lib/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}lib/alertify/lib/alertify.min.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}js/principal.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/ratings.css">
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}lib/bootstrap/css/bootstrap-responsive.min.css">
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}lib/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}lib/alertify/themes/alertify.core.css">
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}lib/alertify/themes/alertify.default.css">
+
+</head>
+
+<body>
+	<div id="header" class="container">
+		<h1>Pagina Web</h1>
+	</div>
+	<div class="container">
+		<div class="accordion" id="materias"></div>	
+	</div>
+</body>
+
+</html>
+
+
+<script type="text/template" id="template_form_comentario_nuevo">
+	<div id="comentario_nuevo_<%= materia_id %>" class="comentario_nuevo">
+		<h4>Nuevo comentario sobre: <span>{{nombre_profesor}}</span></h4>
+		<form id="form_comentario_nuevo_<%= materia_id %>">
+			<textarea name="descripcion" form="form_comentario_nuevo_<%= materia_id %>" maxlength="300" placeholder="Escribe el comentario..." required></textarea>
+			<label class="carita_feliz">
+				<input type="radio" name="rating" value="feliz" form="form_comentario_nuevo_<%= materia_id %>" hidden />
+			</label>
+			<label class="carita_neutral">
+				<input type="radio" name="rating" value="neutral" form="form_comentario_nuevo_<%= materia_id %>" hidden />
+			</label>
+			<label class="carita_triste">
+				<input type="radio" name="rating" value="triste" form="form_comentario_nuevo_<%= materia_id %>" hidden />
+			</label>
+			<select type="text" placeholder="Año cursada" name="anio_cursada"></select>
+			<select type="text" placeholder="Cuatrimestre: Ej: 1C o 2C o 1B" name="cuatrimestre_cursada" ></select>
+			<input type="hidden" name="profesor" />
+			<button id="enviar_comentario_nuevo_<%= materia_id %>" class="btn btn-primary">Comentar</button>
+		</form>
+	</div>
+</script>
+
+<script type="text/template" id="template_comentario">
+	<div class"comentario">
+		<div>
+			<span class=""> <%= fecha %> </span>
+			<span class=""> <%= anio_cursada %> </span>
+			<span class=""> <%= cuatrimestre_cursada %> </span>
+		</div>
+		<textarea name="descripcion"> <%= descripcion %> </textarea>
+		<label class="carita_<%= rating %>">
+			<input type="radio" name="rating" value="<%= rating %>" hidden />
+		</label>
+	</div>
+</script>
