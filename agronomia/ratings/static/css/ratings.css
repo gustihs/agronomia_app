@@ -79,6 +79,12 @@
 	display: inline-block;
 }
 
+.carita_feliz.in{
+	width: 60px;
+	height: 60px;
+	display: block;
+}
+
 label.carita_feliz:hover{
 	background-position: 2px -59px;
 }
@@ -113,4 +119,20 @@ label.carita_triste:hover{
 
 label.carita_triste.activa{
 	background-position: -113px -118px;
+}
+
+.comentario{
+	border: 1px solid;
+	border-radius: 15px;
+	margin: 3% auto;
+	width: 90%;
+}
+
+.comentario textarea{
+	width: 95%;
+	resize: none;
+}
+
+.comentario > div{
+	height: 70px;
 }

@@ -51,15 +51,13 @@
 </script>
 
 <script type="text/template" id="template_comentario">
-	<div class"comentario">
+	<div class="comentario">
 		<div>
-			<span class=""> <%= fecha %> </span>
-			<span class=""> <%= anio_cursada %> </span>
-			<span class=""> <%= cuatrimestre_cursada %> </span>
+			<span class="carita_<%= rating %> in" alt="<%= rating %>">&nbsp;</span>		
+			<span class="">Creado: </span> <%= fecha %>
+			<span class=""> Anio: </span> <%= anio_cursada %>
+			<span class=""> Cuatrimestre: </span> <%= cuatrimestre_cursada %>
 		</div>
-		<textarea name="descripcion"> <%= descripcion %> </textarea>
-		<label class="carita_<%= rating %>">
-			<input type="radio" name="rating" value="<%= rating %>" hidden />
-		</label>
+		<textarea name="descripcion"> <%= descripcion %> </textarea>		
 	</div>
 </script>
