@@ -15,7 +15,6 @@ def cargarMaterias(request):
 	materias = Materia.objects.all()
 	materias_json = serializers.serialize('json', materias, fields = ('nombre'))
 	profesores = Profesor.objects.filter(materia_id = 1)
-	print serializers.serialize('json', profesores)
 
 	return HttpResponse(materias_json, mimetype='application/javascript')
 
@@ -31,7 +30,6 @@ def cargarComentariosDeProfesor(request):
 
 		comentarios = Comentario.objects.filter(profesor_id = profesor_id)
 		comentarios_json = serializers.serialize('json', comentarios)
-		print comentarios_json
 
 		return HttpResponse(comentarios_json, mimetype='application/javascript')
 	else:
