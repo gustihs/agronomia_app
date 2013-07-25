@@ -1,0 +1,150 @@
+
+#header{
+	margin-bottom: 3%;
+	margin-top: 2%;	
+}
+
+#materias{
+	text-align: center;
+	font-size: 20px;
+}
+
+#materias a.accordion-toggle{
+	text-decoration: none;
+}
+
+#materias .accordion-group{
+	border: 2px solid #E5E5E5;
+}
+
+.accordion-inner > div{
+	border: 1px solid red;
+}
+
+.accordion-inner .profesores, .accordion-inner .comentarios, .accordion-inner .comentario_nuevo{
+	margin: 2%;
+}
+
+.profesores{
+	max-width: 30%;
+	width: 30%;
+	margin-right: 2%;
+	overflow: hidden;
+	float: left;
+	position: static;
+}
+
+.profesores .accordion-group, .profesores .accordion-heading{
+	width: 100%;
+}
+
+.comentarios, .comentario_nuevo{
+	max-width: 60%;
+	width: 60%;
+	float: right;
+}
+
+.comentarios{
+	max-height: 70%;
+	height: 70%;
+	overflow-y: scroll;
+}
+
+.comentario_nuevo{
+	
+}
+
+.comentario_nuevo textarea{
+	resize: none;
+	margin: 2%;
+	width: -moz-available;
+	display: block;
+}
+
+.comentario_nuevo button{
+	margin: 2%;
+	float: right;
+}
+
+.comentario_nuevo label{
+	float: left;
+	margin: 2%;
+	width: 59px;
+	height: 60px;
+}
+
+.carita_feliz{
+	background: url(/static/img/ratings.png) no-repeat transparent;
+	background-position: 1px 4px;
+	display: inline-block;
+}
+
+label.carita_feliz:hover{
+	background-position: 2px -59px;
+}
+
+label.carita_feliz.activa{
+	background-position: 2px -118px;
+}
+
+.carita_neutral{
+	background: url(/static/img/ratings.png) no-repeat transparent;
+	background-position: -56px 4px;
+	display: inline-block;
+}
+
+label.carita_neutral:hover{
+	background-position: -56px -59px;
+}
+
+label.carita_neutral.activa{
+	background-position: -56px -118px;
+}
+
+.carita_triste{
+	background: url(/static/img/ratings.png) no-repeat transparent;
+	background-position: -113px 4px;
+	display: inline-block;
+}
+
+label.carita_triste:hover{
+	background-position: -113px -59px;
+}
+
+label.carita_triste.activa{
+	background-position: -113px -118px;
+}
+
+.carita_feliz.in, .carita_neutral.in, .carita_triste.in{
+	width: 60px;
+	height: 60px;
+	display: block;
+	float: left;
+}
+
+
+.comentario{
+	border: 1px solid;
+	border-radius: 15px;
+	margin: 3% auto;
+	width: 90%;
+}
+
+.comentario textarea{
+	width: 95%;
+	resize: none;
+}
+
+.comentario > div{
+	height: 70px;
+	font-size: 16px;
+}
+
+.comentario span{
+	font-size: 14px;
+	color: grey;
+}
+
+.textarea_desactivado{
+	cursor: default;
+}
