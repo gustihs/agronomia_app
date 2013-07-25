@@ -5,6 +5,7 @@
 	<script type="text/javascript" src="{{STATIC_URL}}js/underscore-min.js"></script>
 	<script type="text/javascript" src="{{STATIC_URL}}js/backbone-min.js"></script>
 	<script type="text/javascript" src="{{STATIC_URL}}lib/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}lib/typeahead.js/typeahead.min.js"></script>	
 	<script type="text/javascript" src="{{STATIC_URL}}lib/alertify/lib/alertify.min.js"></script>
 	<script type="text/javascript" src="{{STATIC_URL}}js/principal.js"></script>
 
@@ -60,4 +61,21 @@
 		</div>
 		<textarea name="descripcion" readonly class="textarea_desactivado"> <%= descripcion %> </textarea>		
 	</div>
+</script>
+
+<script type="text/template" id="template_form_profesor_nuevo" >
+
+	<div class="accordion-group">
+		<div class="accordion-heading">
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#profesor_nuevo_accordion_body">
+				Agregar profesor
+			</a>
+		</div>
+		<div id="profesor_nuevo_accordion_body" class="accordion-body collapse">
+			<div class="accordion-inner profesor_nuevo_accordion_inner">
+				<input id="" class="" autocomplete="off" type="text" data-provide="typehead" />
+			</div>
+		</div>
+	</div>
+	
 </script>

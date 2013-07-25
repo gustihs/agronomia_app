@@ -1,4 +1,8 @@
 
+.clear{
+	clear: both;
+}
+
 #header{
 	margin-bottom: 3%;
 	margin-top: 2%;	
@@ -18,24 +22,31 @@
 }
 
 .accordion-inner > div{
-	border: 1px solid red;
+	/*border: 1px solid red;*/
 }
 
-.accordion-inner .profesores, .accordion-inner .comentarios, .accordion-inner .comentario_nuevo{
+.accordion-inner .profesores, .accordion-inner .profesor_nuevo, .accordion-inner .comentarios, .accordion-inner .comentario_nuevo{
 	margin: 2%;
 }
 
 .profesores{
+	float: left;
+}
+
+.profesores, .profesor_nuevo{
 	max-width: 30%;
 	width: 30%;
 	margin-right: 2%;
 	overflow: hidden;
-	float: left;
 	position: static;
 }
 
+.profesor_nuevo{
+
+}
+
 .profesores .accordion-group, .profesores .accordion-heading{
-	width: 100%;
+
 }
 
 .comentarios, .comentario_nuevo{
@@ -145,6 +156,6 @@ label.carita_triste.activa{
 	color: grey;
 }
 
-.textarea_desactivado{
-	cursor: default;
+textarea.textarea_desactivado{
+	cursor: default !important;
 }

@@ -48,7 +48,8 @@ $(function(){
 				$(materias).each(function(){
 					var materia = new MateriaView();
 					accordion.append(materia.render('materias', this));
-
+					var profesorNuevo = new ProfesorView();
+					profesorNuevo.cargarEventosFormProfesorNuevo($('#profesor_nuevo_accordion_body'));
 					var profesores_ = getProfesoresPorMateria(this.pk);
 					materia.agregarProfesoresAMateria(profesores_, this.pk);
 				});
@@ -56,15 +57,15 @@ $(function(){
 				cargarComentarios();
 
 				$('#materias').on('show', function(){
-					$('#materias .accordion-body.in').collapse('hide');					
+					$('#materias > .accordion-body.in').collapse('hide');					
 				});				
 
 				$('#materias').on('show', function(){
-					$('#materias .accordion-body.in').css('height', screen.height);					
+					$('#materias > .accordion-body.in').css('height', screen.height);					
 				});				
 
 				$('#materias').on('hidden', function(){
-					$('#materias .accordion-inner').find('.comentarios, .comentario_nuevo').remove();
+					$('#materias > .accordion-inner').find('.comentarios, .comentario_nuevo').remove();
 				});
 			},
 			error: function(){
@@ -86,11 +87,11 @@ $(function(){
 				url: '/comentarios',
 				data: {'profesor_id': profesor_id },
 				beforeSend: function(){
-					$('#materia_' + materia_id + ' .accordion-inner').find('.comentarios, .comentario_nuevo').remove();
+					$('#materia_' + materia_id + ' .accordion-inner').first().find('.comentarios, .comentario_nuevo').remove();
 					var comentarioNuevo = new ComentarioView();
 					var html = comentarioNuevo.renderComentarioNuevo(materia_id);
 					html += '<div id="comentarios_'+materia_id+'" class="comentarios">';					
-					$('#materia_' + materia_id + ' .accordion-inner').append(html);
+					$('#materia_' + materia_id + ' .accordion-inner').first().append(html);
 					var img = '<img src="/static/img/loading.gif" />';
 					$('#comentarios_' + materia_id).html('').append(img);
 
@@ -156,6 +157,7 @@ $(function(){
 					
 					var html = '';
 					$(comentarios_).each(function(){
+						console.log("aca");
 						var comentarioView = new ComentarioView();
 						html += comentarioView.render(this);
 					});
@@ -199,12 +201,13 @@ $(function(){
 		},
 		agregarProfesoresAMateria: function(profesores_, materia_id){
 
-			if(profesores_.lenght == 0) return;
 			var html = '';
 			$(profesores_).each(function(){
 				var profesorView = new ProfesorView();
 				html += profesorView.render(this);
 			});
+			var profesorView = new ProfesorView();
+			html += profesorView.renderFormProfesorNuevo(materia_id);
 
 			var accordion = 'profesores_' + materia_id;
 			$('#' + accordion).append(html);
@@ -228,6 +231,18 @@ $(function(){
 
 			return html;
 
+		},
+		renderFormProfesorNuevo: function(materia_id){
+			var data = { materia_id: materia_id };
+			var html = _.template($('#template_form_profesor_nuevo').html(), data);
+			return html;
+		},
+		cargarEventosFormProfesorNuevo: function(form){
+			
+			$(form).find('input').typeahead({
+				name: 'accounts',
+			  	local: ['timtrueman', 'JakeHarding', 'vskarich']
+			});
 		}
 	});	
 
